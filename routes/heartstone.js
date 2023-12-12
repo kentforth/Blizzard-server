@@ -32,7 +32,7 @@ module.exports = function (io) {
 
       let newTypeCardsArray = functions.generateNumbersArray(cardsType, 1);
 
-      socket.emit("cardsType", newTypeCardsArray);
+      socket.emit("heartstoneCardsType", newTypeCardsArray);
     }, 2100);
 
     const topDeckGamesInterval = setInterval(() => {

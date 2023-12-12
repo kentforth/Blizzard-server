@@ -21,40 +21,40 @@ module.exports = function (io) {
       clearInterval(usersChoiceHealers);
     });
 
-    socket.on("changeUsersNumber", (data) => {
+    socket.on("overwatchChangeUsersNumber", (data) => {
       maxNumber = data;
     });
 
     /*generate users number*/
     const usersInterval = setInterval(() => {
       socket.emit(
-        "newNumber",
+        "overwatchNewNumber",
         randomUsers.generateRandomUsers(5000, maxNumber)
       );
     }, 2000);
 
     /*generate team win rates*/
     const teaWinRates = setInterval(() => {
-      socket.emit("teamWinRate", randomArray.generateRandomArray(20, 60, 10));
+      socket.emit("overwatchTeamWinRate", randomArray.generateRandomArray(20, 60, 10));
     }, 3000);
 
     /*generate users choice tanks number*/
     const usersChoiceTanks = setInterval(() => {
       socket.emit(
-        "usersChoiceTanks",
+        "overwatchUsersChoiceTanks",
         randomArray.generateRandomArray(10, 80, 8)
       );
     }, 2500);
 
     /*generate users choice dps number*/
     const usersChoiceDPS = setInterval(() => {
-      socket.emit("usersChoiceDPS", randomArray.generateRandomArray(7, 90, 17));
+      socket.emit("overwatchUsersChoiceDPS", randomArray.generateRandomArray(7, 90, 17));
     }, 3000);
 
     /*generate users choice dps number*/
     const usersChoiceHealers = setInterval(() => {
       socket.emit(
-        "usersChoiceHealers",
+        "overwatchUsersChoiceHealers",
         randomArray.generateRandomArray(7, 90, 17)
       );
     }, 2200);

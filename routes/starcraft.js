@@ -22,25 +22,25 @@ module.exports = function (io) {
     /*generate users number*/
     const usersInterval = setInterval(() => {
       socket.emit(
-        "generateUsers",
+        "starcraftGenerateUsers",
         starcraftFunctions.generateRandomUsers(5000, maxNumber)
       );
     }, 2300);
 
     /*send army units numbers*/
-    socket.emit("armyUnits", armyUnits);
+    socket.emit("starcraftArmyUnits", armyUnits);
 
     /*generate clan members number*/
     const clanMembersInterval = setInterval(() => {
       socket.emit(
-        "clanMembers",
+        "starcraftClanMembers",
         starcraftFunctions.generateArrayWithSpecificNumbers()
       );
     }, 2750);
 
-    socket.on("changeArmyUnits", (units) => {
+    socket.on("starcraftChangeArmyUnits", (units) => {
       armyUnits = [units[0], units[1], units[2]];
-      socket.emit("armyUnits", units);
+      socket.emit("starcraftArmyUnits", units);
     });
   });
 

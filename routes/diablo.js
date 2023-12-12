@@ -28,7 +28,7 @@ module.exports = function (io) {
         1
       );
 
-      socket.emit("topCountriesDiablo", newCountriesArray);
+      socket.emit("diabloTopCountriesDiablo", newCountriesArray);
     }, 2200);
 
     const topDamagePlayers = setInterval(() => {
@@ -48,10 +48,10 @@ module.exports = function (io) {
       ];
 
       let newDamageArray = functions.generateFloatNumbersArray(damageArray, 3);
-      socket.emit("topDamagePlayersDiablo", newDamageArray);
+      socket.emit("diabloTopDamagePlayersDiablo", newDamageArray);
     }, 3200);
 
-    socket.on("changeCharacterChart", (data) => {
+    socket.on("diabloChangeCharacterChart", (data) => {
       socket.emit("diabloCharacterStats", data);
     });
   });
