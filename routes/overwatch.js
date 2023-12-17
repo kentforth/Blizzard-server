@@ -55,7 +55,7 @@ module.exports = function (io) {
     const usersChoiceHealers = setInterval(() => {
       socket.emit(
         "overwatchUsersChoiceHealers",
-        randomArray.generateRandomArray(7, 90, 17)
+        randomArray.generateRandomArray(7, 90, 7)
       );
     }, 2200);
   });
